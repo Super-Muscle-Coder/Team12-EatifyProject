@@ -5,7 +5,6 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.clickable
 import androidx.compose.material3.MaterialTheme
@@ -30,19 +29,25 @@ import com.example.appbanhangonline.R
 
 @Composable
 fun IntroduceScreen2(navController: NavController) {
-    var showSlogan1 by remember { mutableStateOf(false) }
-    var showSlogan2 by remember { mutableStateOf(false) }
-    var showSlogan3 by remember { mutableStateOf(false) }
+    var showSlogan10 by remember { mutableStateOf(false) }
+    var showSlogan11 by remember { mutableStateOf(false) }
+    var showSlogan20 by remember { mutableStateOf(false) }
+    var showSlogan21 by remember { mutableStateOf(false) }
+    var showSlogan30 by remember { mutableStateOf(false) }
     val totalPages = 4
     var currentPage by remember { mutableIntStateOf(2) }
 
     LaunchedEffect(Unit) {
         delay(500)
-        showSlogan1 = true
+        showSlogan10 = true
+        //delay(1000)
+        showSlogan11 = true
         delay(1000)
-        showSlogan2 = true
+        showSlogan20 = true
+        //delay(1000)
+        showSlogan21 = true
         delay(1000)
-        showSlogan3 = true
+        showSlogan30 = true
     }
 
     val textColor = MaterialTheme.colorScheme.onBackground
@@ -52,12 +57,13 @@ fun IntroduceScreen2(navController: NavController) {
     val screenHeight = configuration.screenHeightDp.dp
     val density = LocalDensity.current
 
-    val sloganFontSize = with(density) { (screenWidth * 0.025f + screenHeight * 0.015f).toSp() }
+    val sloganFontSize = with(density) { (screenWidth * 0.02f + screenHeight * 0.015f).toSp() }
 
-    val topSpacer = screenHeight * 0.2f
-    val middleSpacer1 = screenHeight * 0.1f
-    val middleSpacer2 = screenHeight * 0.1f
-    val bottomSpacer = screenHeight * 0.05f
+    val topSpacer = screenHeight * 0.05f
+    val middleSpacer = screenHeight * 0.005f
+    val middleSpacer1 = screenHeight * 0.18f
+    val middleSpacer2 = screenHeight * 0.005f
+    val middleSpacer3 = screenHeight * 0.18f
 
     IntroduceScreenUI(
         currentPage = currentPage,
@@ -69,55 +75,90 @@ fun IntroduceScreen2(navController: NavController) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier = Modifier.height(topSpacer))
-
             Box(
-                contentAlignment = Alignment.Center,
+                contentAlignment = Alignment.TopStart,
                 modifier = Modifier.fillMaxWidth()
             ) {
                 this@Column.AnimatedVisibility(
-                    visible = showSlogan1,
+                    visible = showSlogan10,
                     enter = fadeIn(animationSpec = tween(durationMillis = 1000)) +
                             slideInHorizontally(initialOffsetX = { -it }, animationSpec = tween(durationMillis = 1000)) +
                             scaleIn(initialScale = 0.8f, animationSpec = tween(durationMillis = 1000))
                 ) {
                     Text(
-                        text = "Quality you can taste, freshness you can trust.",
+                        text = "Quality you can taste...",
                         fontSize = sloganFontSize,
                         color = textColor,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Start
                     )
                 }
             }
-
-            Spacer(modifier = Modifier.height(middleSpacer1))
-
+            Spacer(modifier = Modifier.height(middleSpacer))
             Box(
-                contentAlignment = Alignment.Center,
+                contentAlignment = Alignment.BottomEnd,
                 modifier = Modifier.fillMaxWidth()
             ) {
                 this@Column.AnimatedVisibility(
-                    visible = showSlogan2,
+                    visible = showSlogan11,
                     enter = fadeIn(animationSpec = tween(durationMillis = 1000)) +
                             slideInHorizontally(initialOffsetX = { it }, animationSpec = tween(durationMillis = 1000)) +
                             scaleIn(initialScale = 0.8f, animationSpec = tween(durationMillis = 1000))
                 ) {
                     Text(
-                        text = "From our kitchen to your table, freshness guaranteed.",
+                        text = "...freshness you can trust.",
                         fontSize = sloganFontSize,
                         color = textColor,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.End
                     )
                 }
             }
 
+            Spacer(modifier = Modifier.height(middleSpacer1))
+            Box(
+                contentAlignment = Alignment.TopStart,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                this@Column.AnimatedVisibility(
+                    visible = showSlogan20,
+                    enter = fadeIn(animationSpec = tween(durationMillis = 1000)) +
+                            slideInHorizontally(initialOffsetX = { -it }, animationSpec = tween(durationMillis = 1000)) +
+                            scaleIn(initialScale = 0.8f, animationSpec = tween(durationMillis = 1000))
+                ) {
+                    Text(
+                        text = "From our kitchen to your table...",
+                        fontSize = sloganFontSize,
+                        color = textColor,
+                        textAlign = TextAlign.Start
+                    )
+                }
+            }
             Spacer(modifier = Modifier.height(middleSpacer2))
+            Box(
+                contentAlignment = Alignment.BottomEnd,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                this@Column.AnimatedVisibility(
+                    visible = showSlogan21,
+                    enter = fadeIn(animationSpec = tween(durationMillis = 1000)) +
+                            slideInHorizontally(initialOffsetX = { it }, animationSpec = tween(durationMillis = 1000)) +
+                            scaleIn(initialScale = 0.8f, animationSpec = tween(durationMillis = 1000))
+                ) {
+                    Text(
+                        text = "...freshness guaranteed.",
+                        fontSize = sloganFontSize,
+                        color = textColor,
+                        textAlign = TextAlign.End
+                    )
+                }
+            }
 
+            Spacer(modifier = Modifier.height(middleSpacer3))
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier.fillMaxWidth()
             ) {
                 this@Column.AnimatedVisibility(
-                    visible = showSlogan3,
+                    visible = showSlogan30,
                     enter = fadeIn(animationSpec = tween(durationMillis = 1000)) +
                             slideInHorizontally(initialOffsetX = { -it }, animationSpec = tween(durationMillis = 1000)) +
                             scaleIn(initialScale = 0.8f, animationSpec = tween(durationMillis = 1000))
@@ -130,6 +171,8 @@ fun IntroduceScreen2(navController: NavController) {
                     )
                 }
             }
+
+
         }
 
         Box(
@@ -141,7 +184,7 @@ fun IntroduceScreen2(navController: NavController) {
                 tint = textColor,
                 modifier = Modifier
                     .align(Alignment.CenterStart)
-                    .padding(start = 1.dp)
+                    .padding(start = 0.5.dp)
                     .clickable {
                         navController.popBackStack()
                         currentPage = (currentPage - 1).coerceAtLeast(0)
@@ -154,7 +197,7 @@ fun IntroduceScreen2(navController: NavController) {
                 tint = textColor,
                 modifier = Modifier
                     .align(Alignment.CenterEnd)
-                    .padding(end = 1.dp)
+                    .padding(end = 0.5.dp)
                     .clickable {
                         navController.navigate("introduceScreen3")
                         currentPage = 3

@@ -61,7 +61,7 @@ fun IntroduceScreen(navController: NavController) {
     IntroduceScreenUI(
         currentPage = currentPage,
         totalPages = totalPages,
-        backgroundImageId = R.drawable.bread // Thay bằng ID ảnh nền tương ứng
+        backgroundImageId = R.drawable.bread // Thay bằng ID ảnh nền
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),

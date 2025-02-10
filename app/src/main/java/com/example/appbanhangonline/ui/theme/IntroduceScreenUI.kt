@@ -46,15 +46,15 @@ fun IntroduceScreenUI(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(screenHeight * 0.83f) // 83% chiều cao màn hình
+                .height(screenHeight * 0.9f) // 90% chiều cao màn hình
                 .align(Alignment.Center)
                 .padding(
-                    top = screenHeight * 0.10f, // Cách cạnh trên 10% chiều cao màn hình
-                    bottom = screenHeight * 0.07f // Cách cạnh dưới 7% chiều cao màn hình
+                    top = screenHeight * 0.07f, // Cách cạnh trên 7% chiều cao màn hình
+                    bottom = screenHeight * 0.03f // Cách cạnh dưới 3% chiều cao màn hình
                 )
-                .clip(RoundedCornerShape(16.dp)) // Bo tròn các góc
+                .clip(RoundedCornerShape(50.dp)) // Bo tròn các góc
                 .background(MaterialTheme.colorScheme.surface.copy(alpha = 0.8f))
-                .padding(16.dp) // Thêm padding bên trong hộp
+                .padding(10.dp) // Thêm padding bên trong hộp
         ) {
             content()
         }

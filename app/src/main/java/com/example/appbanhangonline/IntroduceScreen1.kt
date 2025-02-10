@@ -45,11 +45,10 @@ fun IntroduceScreen1(navController: NavController) {
     val screenHeight = configuration.screenHeightDp.dp
     val density = LocalDensity.current
 
-    val titleFontSize = with(density) { (screenWidth * 0.025f + screenHeight * 0.015f).toSp() }
-    val sloganFontSize = with(density) { (screenWidth * 0.025f + screenHeight * 0.015f).toSp() }
+    val titleFontSize = with(density) { (screenWidth * 0.02f + screenHeight * 0.015f).toSp() }
 
-    val topSpacer = screenHeight * 0.1f
-    val middleSpacer = screenHeight * 0.3f
+    val topSpacer = screenHeight * 0.05f
+    val middleSpacer = screenHeight * 0.325f
 
     IntroduceScreenUI(
         currentPage = currentPage,
@@ -63,7 +62,7 @@ fun IntroduceScreen1(navController: NavController) {
             Spacer(modifier = Modifier.height(topSpacer))
 
             Box(
-                contentAlignment = Alignment.Center,
+                contentAlignment = Alignment.TopStart,
                 modifier = Modifier.fillMaxWidth()
             ) {
                 this@Column.AnimatedVisibility(
@@ -84,7 +83,7 @@ fun IntroduceScreen1(navController: NavController) {
             Spacer(modifier = Modifier.height(middleSpacer))
 
             Box(
-                contentAlignment = Alignment.Center,
+                contentAlignment = Alignment.BottomEnd,
                 modifier = Modifier.fillMaxWidth()
             ) {
                 this@Column.AnimatedVisibility(
@@ -95,7 +94,7 @@ fun IntroduceScreen1(navController: NavController) {
                 ) {
                     Text(
                         text = "Taste the World, One Bite at a Time",
-                        fontSize = sloganFontSize,
+                        fontSize = titleFontSize,
                         color = textColor,
                         textAlign = TextAlign.End
                     )

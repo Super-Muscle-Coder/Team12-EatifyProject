@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
+// Đánh dấu trang
 @Composable
 fun PageIndicator(currentPage: Int, totalPages: Int) {
     Row(
@@ -20,10 +21,10 @@ fun PageIndicator(currentPage: Int, totalPages: Int) {
         repeat(totalPages) { page ->
             Box(
                 modifier = Modifier
-                    .padding(horizontal = 4.dp)
-                    .size(if (page == currentPage) 12.dp else 8.dp)
+                    .padding(horizontal = 5.dp)
+                    .size(if (page == currentPage) 10.dp else 9.dp)
                     .background(
-                        color = if (page == currentPage) Color.Gray else Color.White,
+                        color = if (page == currentPage) Color.White else Color.Gray,
                         shape = CircleShape
                     )
             )
